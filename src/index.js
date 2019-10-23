@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import OneSignal from 'react-native-onesignal';
 import {Root} from 'native-base';
-
+import CodePush from 'react-native-code-push';
 import {pushToken, getToken} from './utils/AsyncStorage';
 import LoginSwitch from './routes';
 
@@ -50,4 +50,6 @@ class App extends Component {
   }
 }
 
-export default App;
+export default CodePush({
+  checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME,
+})(App);

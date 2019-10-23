@@ -172,6 +172,12 @@ android {
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
+            buildConfigField "String", "CODEPUSH_KEY", '""'
+        }
+        releaseStaging{
+            buildConfigField "String", "CODEPUSH_KEY", '"qfqiJUMr-EX2mt9OrI4tBnhVVt_78w17B4S_b2"'
+
+            matchingFallbacks = ['debug', 'release']
         }
         release {
             // Caution! In production, you need to generate your own keystore file.
@@ -180,6 +186,7 @@ android {
             signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            buildConfigField "String", "CODEPUSH_KEY", '"ZCsGX0-PhYjhQLuKbgjDF2-nKvciHoShyI0P5"'
         }
     }
     // applicationVariants are e.g. debug, release
