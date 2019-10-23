@@ -129,21 +129,15 @@ class Cadastrar extends Component {
               </Item>
               <Item style={{marginTop: 5}}>
                 <Picker
-                  mode="dropdown"
-                  iosIcon={<Icon name="arrow-down" />}
+                  mode="dialog"
+                  iosIcon={<Icon name="arrow-down" color="#fff" />}
                   iosHeader="Selecionar"
                   placeholder="Selecione Funçao"
-                  placeholderStyle={{
-                    color: '#FFF',
-                    marginLeft: -15,
-                    padding: 0,
-                  }}
-                  placeholderIconColor="#fff"
-                  itemStyle={{color: '#fff'}}
                   headerBackButtonText="voltar"
                   style={styles.picker}
                   selectedValue={funcao}
                   onValueChange={this.onValueChange.bind(this)}>
+                  <Picker.Item label="escolha um cargo" value="" color="#fff" />
                   <Picker.Item
                     label="Auxiliar de Enfermagem"
                     value="auxiliar de enfermagem"

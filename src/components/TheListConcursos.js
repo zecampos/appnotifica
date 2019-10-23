@@ -31,7 +31,7 @@ const TheListConcursos = ({concursos}) => (
         <Body>
           <Text style={{fontSize: 12}}>{item.titulo}</Text>
 
-          <Text note numberOfLines={4}>
+          <Text note numberOfLines={8}>
             {item.info}
           </Text>
         </Body>
