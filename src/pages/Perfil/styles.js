@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   btnPremium: {
     backgroundColor: colors.primary,
 
-    height: setheight(0.05),
+    height: setheight(0.06),
     justifyContent: 'center',
     marginTop: 0,
   },

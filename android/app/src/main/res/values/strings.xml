@@ -1,4 +1,6 @@
 <resources>
-	<string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">deployment-key-here</string>
     <string name="app_name">Notifica Enfermagem</string>
+     <string name="appCenterAnalytics_whenToEnableAnalytics" moduleConfig="true" translatable="false">ALWAYS_SEND</string>
+    <string name="appCenterCrashes_whenToSendCrashes" moduleConfig="true" translatable="false">ALWAYS_SEND</string>
+    <string name="reactNativeCodePush_androidDeploymentKey" moduleConfig="true">efa50217-7c36-48ee-a882-cc6b20693e4f</string>
 </resources>
