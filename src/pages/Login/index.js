@@ -101,7 +101,7 @@ class Login extends Component {
               </Item>
               <View style={styles.viewEsqueci}>
                 <TouchableOpacity style={styles.btnEsqueci}>
-                  <Text style={styles.textEsqueci}>Esqueci a senha</Text>
+                  <Text style={styles.textEsqueci}>esqueceu a senha?</Text>
                 </TouchableOpacity>
               </View>
               <View style={styles.viewBtn}>
