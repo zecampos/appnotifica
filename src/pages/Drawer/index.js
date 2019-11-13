@@ -60,10 +60,10 @@ const MyDrawerNavigator = createDrawerNavigator(
       screen: Concursos,
       drawLabel: 'Concursos',
     },
-    // Aulas: {
-    //   screen: MyStackNavigator,
-    //   drawLabel: 'Aulas',
-    // },
+    Aulas: {
+      screen: MyStackNavigator,
+      drawLabel: 'Aulas',
+    },
     Perfil: {
       screen: Perfil,
       drawLabel: 'Perfil',

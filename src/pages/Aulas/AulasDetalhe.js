@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {View, Text, Button} from 'react-native';
+import {View, Text} from 'react-native';
 import {withNavigation} from 'react-navigation';
 import SafeAreaView from 'react-native-safe-area-view';
 import TheHeaderBack from '../../components/TheHeaderBack';
@@ -11,43 +11,12 @@ class AulasDetalhe extends Component {
     super(props);
     this.state = {
       titulo: '',
-      aulas: [
-        {
-          id: 1,
-          titulo: 'Geometria 1',
-          link: 'http://esmirna.com.br/sample/SampleVideo.mp4',
-        },
-        {
-          id: 2,
-          titulo: 'Equação de primeiro Grau',
-          link: 'http://esmirna.com.br/sample/SampleVideo.mp4',
-        },
-        {
-          id: 3,
-          titulo: 'Equação de segundo Grau',
-          link: 'http://esmirna.com.br/sample/SampleVideo.mp4',
-        },
-        {
-          id: 4,
-          titulo: 'Operações Basicas',
-          link: 'http://esmirna.com.br/sample/SampleVideo.mp4',
-        },
-        {
-          id: 5,
-          titulo: 'Funções de primeiro grau',
-          link: 'http://esmirna.com.br/sample/SampleVideo.mp4',
-        },
-        {
-          id: 6,
-          titulo: 'Funções de segundo grau',
-          link: 'http://esmirna.com.br/sample/SampleVideo.mp4',
-        },
-      ],
+      aulas: [],
     };
   }
   componentDidMount() {
-    let titulo = this.props.navigation.getParam('aula');
-    this.setState({titulo});
+    let aulas = this.props.navigation.getParam('aulas');
+    this.setState({titulo: aulas.nome, aulas: aulas.aulas});
   }
   render() {
     console.log(this.props.navigation.getParam('aula'));

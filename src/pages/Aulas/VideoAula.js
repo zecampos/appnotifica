@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 
-import {View, Text} from 'react-native';
 import VideoPlayer from 'react-native-video-controls';
 import Orientation from 'react-native-orientation';
 import SafeAreaView from 'react-native-safe-area-view';

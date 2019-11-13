@@ -12,6 +12,7 @@ import portugues from '../assets/icons/aulas/portugues.png';
 import quimica from '../assets/icons/aulas/quimica.png';
 import biologia from '../assets/icons/aulas/biologia.png';
 import redacao from '../assets/icons/aulas/redacao.png';
+import tips from '../assets/icons/aulas/tips.png';
 import colors from '../config/styles/colors';
 import {setWidth, setheight} from '../config/styles/metrics';
 const styles = StyleSheet.create({
@@ -58,20 +59,25 @@ const setIcon = icon => {
     case 'Redação':
       return redacao;
       break;
+
+    case 'Dicas':
+      return tips;
+      break;
   }
 };
-const route = (navigation, id, t) => {
+const route = (navigation, id, t, aulas) => {
   console.log('id ?', t);
-  if (!id) {
+  if (id === 1) {
+    console.log('rota...', t);
     navigation.navigate(t);
-  }
-  if (id) {
-    navigation.navigate('AulasDetalhe', {id, aula: t});
+  } else if (id === 0) {
+    console.log('rota 0', t);
+    navigation.navigate('AulasDetalhe', {id, titulo: aulas.nome, aulas});
   }
 };
-const TheButtonItem = ({title, rota, icon, navigation}) => (
+const TheButtonItem = ({title, rota, icon, navigation, aulas}) => (
   <TouchableOpacity
-    onPress={() => route(navigation, rota, title)}
+    onPress={() => route(navigation, rota, title, aulas)}
     style={styles.btnMain}>
     <Image source={setIcon(icon)} />
     <Text style={styles.textTitle}>{title}</Text>

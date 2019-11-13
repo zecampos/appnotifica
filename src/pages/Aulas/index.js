@@ -1,24 +1,34 @@
 import React, {Component} from 'react';
+import {View, Text, Button, StatusBar, ActivityIndicator} from 'react-native';
 
-import {View, Text, Button, StatusBar} from 'react-native';
 import {withNavigation} from 'react-navigation';
 import SafeAreaView from 'react-native-safe-area-view';
+import {api} from '../../utils/api';
+
 import TheHeader from '../../components/TheHeader';
 import TheButtonItem from '../../components/TheButtonItem';
+
 import styles from './styles';
+import colors from '../../config/styles/colors';
 class Aulas extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      aulas: [
-        {id: 1, aula: 'Matemática'},
-        {id: 2, aula: 'Fisíca'},
-        {id: 3, aula: 'Português'},
-        {id: 4, aula: 'Quimíca'},
-        {id: 5, aula: 'Biologia'},
-        {id: 6, aula: 'Redação'},
-      ],
+      aulas: [],
+      loading: true,
     };
+  }
+  async componentDidMount() {
+    await this.getAulas();
+  }
+  async getAulas() {
+    try {
+      let a = await api.get('/aulas');
+      this.setState({aulas: a.data.modulos, loading: false});
+    } catch (e) {
+      console.log('Erro', e);
+      this.setState({loading: false});
+    }
   }
 
   render() {
@@ -26,24 +36,31 @@ class Aulas extends Component {
       <SafeAreaView style={styles.container}>
         <StatusBar backgroundColor="#FFF" barStyle="dark-content" />
         <TheHeader />
-        <View style={styles.content}>
-          <View styles={styles.contentTitle}>
-            <Text style={styles.mainTitle}>Aulas</Text>
+        {this.state.loading ? (
+          <View style={[styles.content, {justifyContent: 'center'}]}>
+            <ActivityIndicator color={colors.primary} size="large" />
           </View>
+        ) : (
+          <View style={styles.content}>
+            <View styles={styles.contentTitle}>
+              <Text style={styles.mainTitle}>Aulas</Text>
+            </View>
 
-          <View style={styles.viewButtonMain}>
-            {this.state.aulas.map((item, i) => (
-              <View key={i} style={styles.viewButtonItem}>
-                <TheButtonItem
-                  navigation={this.props.navigation}
-                  icon={item.aula}
-                  title={item.aula}
-                  rota={item.id}
-                />
-              </View>
-            ))}
+            <View style={styles.viewButtonMain}>
+              {this.state.aulas.map((item, i) => (
+                <View key={i} style={styles.viewButtonItem}>
+                  <TheButtonItem
+                    navigation={this.props.navigation}
+                    icon={item.nome}
+                    title={item.nome}
+                    rota={0}
+                    aulas={item}
+                  />
+                </View>
+              ))}
+            </View>
           </View>
-        </View>
+        )}
       </SafeAreaView>
     );
   }

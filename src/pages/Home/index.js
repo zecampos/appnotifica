@@ -11,9 +11,11 @@ import styles from './styles';
 import {getStorageUser} from '../../utils/AsyncStorage';
 class Home extends Component {
   render() {
+    StatusBar.setBackgroundColor('#FFF');
+    StatusBar.setBarStyle('dark-content');
     return (
       <SafeAreaView style={styles.container}>
-        <StatusBar backgroundColor="#FFF" barStyle="dark-content" />
+        <StatusBar backgroundColor="#7147A9" barStyle="light-content" />
         <TheHeader />
         <View style={styles.content}>
           <View styles={styles.contentTitle}>
@@ -25,15 +27,18 @@ class Home extends Component {
                 navigation={this.props.navigation}
                 icon="concursos"
                 title="Concursos"
+                rota={1}
               />
             </View>
-            {/* <View style={styles.viewButtonItem}>
+            <View style={styles.viewButtonItem}>
               <TheButtonItem
                 navigation={this.props.navigation}
                 icon="aulas"
                 title="Aulas"
+                rota={1}
               />
             </View>
+            {/*
             <View style={styles.viewButtonItem}>
               <TheButtonItem
                 navigation={this.props.navigation}
